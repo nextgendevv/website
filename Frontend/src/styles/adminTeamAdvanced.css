@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-glow: #1e70b8;
+    --accent-color: #4fa7ff;
+    --text-main: #ffffff;
+    --text-dim: #b0c4de;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --bg-dark: #050a18;
+}
+
+.admin-team-wrap {
+    padding: 30px;
+    background:
+        linear-gradient(135deg, rgba(5, 10, 24, 0.9), rgba(30, 112, 184, 0.2)),
+        url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+}
+
+.admin-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: var(--glass-bg);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.admin-top h2 {
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(30, 112, 184, 0.5);
+}
+
+.admin-controls input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-right: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    font-size: 14px;
+    width: 250px;
+    color: white;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.admin-controls input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(79, 167, 255, 0.3);
+}
+
+.admin-controls button {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #1e70b8, #4fa7ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(30, 112, 184, 0.4);
+}
+
+.admin-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 112, 184, 0.6);
+}
+
+/* Glass Table Styling */
+.admin-table {
+    margin-top: 15px;
+    background: var(--glass-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+}
+
+.row {
+    display: grid;
+    /* UserCode, Name, Email, Sponsor, RegDate, Balance */
+    grid-template-columns: 1fr 1.5fr 2fr 1.5fr 1.5fr 1fr;
+    gap: 15px;
+    padding: 16px 24px;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 14px;
+    color: var(--text-dim);
+    transition: background 0.2s;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row:not(.head):hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.row.head {
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Specific Cell Styling */
+.row div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Responsive adjustment */
+@media (max-width: 1024px) {
+    .row {
+        grid-template-columns: 1fr 1fr 1.5fr 1fr;
+        font-size: 13px;
+    }
+
+    .row div:nth-child(5),
+    .row div:nth-child(4) {
+        display: none;
+    }
+
+    .admin-controls input {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-team-wrap {
+        padding: 60px 15px 20px 15px;
+    }
+
+    .admin-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .admin-controls {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .admin-controls input {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .admin-controls button {
+        width: 100%;
+    }
+
+    .row.head {
+        display: none;
+    }
+
+    .row {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .row div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 13px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    .row div::before {
+        content: attr(data-label);
+        font-size: 10px;
+        text-transform: uppercase;
+        color: var(--accent-color);
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .row div:nth-child(3) {
+        grid-column: span 2;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 10px;
+        margin-top: 5px;
+    }
+}

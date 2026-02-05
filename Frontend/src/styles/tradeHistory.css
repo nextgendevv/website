@@ -1,0 +1,57 @@
+.trade-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+.history-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+  color: white;
+}
+
+.history-card:hover {
+  transform: translateX(5px);
+  border-color: #4fa7ff;
+}
+
+.history-card p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.history-card b {
+  color: #4fa7ff;
+}
+
+.trade-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+}
+
+.trade-card h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003a6f;
+  margin-bottom: 15px;
+}
+
+.trade-content {
+  display: flex;
+  justify-content: space-between;
+  color: #003a6f;
+  font-weight: bold;
+}

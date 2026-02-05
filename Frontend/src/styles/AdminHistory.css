@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-glow: #1e70b8;
+  --accent-color: #4fa7ff;
+  --text-main: #ffffff;
+  --text-dim: #b0c4de;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.admin-history-layout {
+  background:
+    linear-gradient(rgba(5, 10, 24, 0.85), rgba(5, 10, 24, 0.85)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 30px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.admin-history-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-history-container h1 {
+  text-align: center;
+  font-size: 32px;
+  color: var(--text-main);
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 18px;
+  color: var(--accent-color);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Glass Card Sections */
+.history-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Table Styles */
+.history-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.history-table table {
+  width: 100%;
+  color: var(--text-main);
+  border-collapse: collapse;
+}
+
+.history-table thead tr {
+  border-bottom: 2px solid var(--glass-border);
+  text-align: left;
+}
+
+.history-table th {
+  padding: 14px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.history-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.history-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.history-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.status-approved,
+.status-completed {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.status-pending {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.status-rejected,
+.status-failed {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+/* Loading State */
+.loading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-color);
+  background: #050a18;
+}
+
+/* No Data State */
+.no-data {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .admin-history-layout {
+    padding: 15px;
+  }
+
+  .history-section {
+    padding: 15px;
+  }
+
+  .history-table {
+    font-size: 12px;
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 10px 8px;
+  }
+}

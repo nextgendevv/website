@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-glow: #1e70b8;
+  --accent-color: #4fa7ff;
+  --text-main: #ffffff;
+  --text-dim: #b0c4de;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.admin-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(5, 10, 24, 0.9), rgba(5, 10, 24, 0.9)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Outfit', sans-serif;
+  color: white;
+}
+
+.admin-container {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Reusing user dashboard container logic */
+.dashboard-container {
+  flex: 1;
+  padding: 30px;
+  margin-left: 260px;
+  /* Space for sidebar */
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 850px) {
+  .dashboard-container {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
+
+.stat-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th {
+  padding: 15px;
+  text-align: left;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--glass-border);
+  font-weight: 600;
+}
+
+.admin-table td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.loading-text {
+  color: white;
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+}

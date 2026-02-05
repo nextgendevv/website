@@ -1,0 +1,23 @@
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.box {
+  background: rgba(255,255,255,0.9);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  font-weight: bold;
+  color: #003a6f;
+}
+
+.box h4 {
+  margin-bottom: 12px;
+  color: #003a6f;
+}
+
+.big {
+  grid-column: span 2;
+}

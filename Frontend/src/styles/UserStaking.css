@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-glow: #1e70b8;
+  --accent-color: #4fa7ff;
+  --text-main: #ffffff;
+  --text-dim: #b0c4de;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.staking-layout {
+  display: flex;
+  background:
+    linear-gradient(rgba(5, 10, 24, 0.8), rgba(5, 10, 24, 0.8)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+}
+
+.staking-container {
+  flex: 1;
+  margin-left: 240px;
+  padding: 40px;
+}
+
+.wallet-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.wallet-btn:hover {
+  background: #3e96ff;
+  box-shadow: 0 4px 15px rgba(79, 167, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.stake-input-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  gap: 15px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  clear: both;
+}
+
+.stake-input-panel input {
+  flex: 1;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+.stake-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.stake-btn:hover {
+  background: #3e96ff;
+  box-shadow: 0 8px 15px rgba(79, 167, 255, 0.2);
+}
+
+.staking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.box {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.box h4 {
+  font-size: 14px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.box p {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--accent-color);
+}
+
+@media (max-width: 900px) {
+  .staking-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .stake-input-panel {
+    flex-direction: column;
+  }
+}

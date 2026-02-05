@@ -1,0 +1,87 @@
+/* Light background */
+.signup-page {
+  height: 100vh;
+  background: #a9d6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Compact Card */
+.signup-card {
+  width: 330px;                 /* reduced size */
+  background: white;
+  padding: 25px 22px;           /* smaller padding */
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Logo */
+.signup-logo {
+  width: 55px;
+  margin-bottom: 8px;
+}
+
+/* Titles */
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 3px;
+}
+
+.subtitle {
+  font-size: 17px;
+  color: #003366;
+  margin-bottom: 18px;
+}
+
+/* Input Fields */
+.signup-card input {
+  width: 100%;
+  padding: 10px;                /* smaller height */
+  margin-top: 8px;
+  border: 1px solid #d0d7e2;
+  border-radius: 8px;           /* slightly smaller radius */
+  background: #f7f9fc;
+  font-size: 14px;
+}
+
+/* Labels */
+.signup-card label {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+  color: #003366;
+}
+
+/* Button */
+.signup-btn {
+ width: 100%;
+  padding: 12px;
+  background: #1664d4;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background: #0f5fc1;
+}
+
+/* Smaller login link */
+.login-link {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.login-link a {
+  color: #0d5acb;
+  font-weight: bold;
+  text-decoration: none;
+}

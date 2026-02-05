@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-glow: #1e70b8;
+  --accent-color: #4fa7ff;
+  --text-main: #ffffff;
+  --text-dim: #b0c4de;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+  --sidebar-width: 220px;
+}
+
+.support-layout {
+  display: flex;
+  background:
+    linear-gradient(rgba(5, 10, 24, 0.8), rgba(5, 10, 24, 0.8)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+}
+
+.support-container {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.support-container h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.support-box {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  max-width: 550px;
+  margin-bottom: 30px;
+}
+
+.support-box input,
+.support-box textarea {
+  width: 100%;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-main);
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.support-box textarea {
+  min-height: 100px;
+}
+
+.support-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ticket-table {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr 2fr;
+  padding: 14px 20px;
+}
+
+.table-header {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.table-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.pending {
+  color: #ffaa00;
+  font-weight: bold;
+}
+
+.replied {
+  color: #00ffaa;
+  font-weight: bold;
+}
+
+.closed {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .support-container {
+    margin-left: 0;
+    padding: 15px;
+  }
+}

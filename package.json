@@ -1,0 +1,12 @@
+{
+  "name": "website-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:frontend": "cd Frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:all": "npm install && npm run install:frontend && npm run install:backend",
+    "build:frontend": "cd Frontend && npm run build",
+    "build:all": "npm run build:frontend"
+  }
+}

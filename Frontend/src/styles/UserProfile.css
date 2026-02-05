@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-glow: #1e70b8;
+  --accent-color: #4fa7ff;
+  --text-main: #ffffff;
+  --text-dim: #b0c4de;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+  --sidebar-width: 220px;
+}
+
+.profile-layout {
+  display: flex;
+  background:
+    linear-gradient(rgba(5, 10, 24, 0.8), rgba(5, 10, 24, 0.8)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+}
+
+.loading-screen {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: var(--accent-color);
+  min-height: 100vh;
+}
+
+.error-box,
+.loader-box {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  text-align: center;
+  max-width: 350px;
+}
+
+.error-box h2 {
+  color: #ff4444;
+  margin-top: 0;
+}
+
+.error-box button {
+  margin-top: 15px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.profile-container {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.profile-top h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.profile-top .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  object-fit: cover;
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar-upload-label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--accent-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #050a18;
+}
+
+.avatar-upload-label:hover {
+  background: #62b1ff;
+  transform: scale(1.1);
+}
+
+.avatar-upload-input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.profile-body {
+  display: flex;
+  gap: 20px;
+}
+
+.right-box {
+  flex: 1;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  max-width: 600px;
+}
+
+.input-block {
+  margin-bottom: 15px;
+}
+
+.input-block label {
+  font-weight: 600;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input-block input {
+  width: 100%;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.input-block input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.readonly-input {
+  border-color: rgba(79, 167, 255, 0.2) !important;
+  color: var(--accent-color) !important;
+  font-weight: 600;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.save-btn {
+  flex: 1.5;
+  padding: 12px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+  background: #62b1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(79, 167, 255, 0.3);
+}
+
+.password-btn {
+  flex: 1;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: white;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.password-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-color);
+}
+
+@media (max-width: 1000px) {
+  .profile-container {
+    margin-left: 0;
+    padding: 15px;
+  }
+}

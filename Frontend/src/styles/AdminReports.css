@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+.admin-report-layout {
+  padding: 30px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(5, 10, 24, 0.9), rgba(30, 112, 184, 0.2)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Outfit', sans-serif;
+  color: white;
+}
+
+.report-header {
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(30, 112, 184, 0.5);
+  color: white;
+}
+
+/* Glass Table Styling */
+.admin-report-table {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.row {
+  display: grid;
+  /* User, Title, Message, Date, Status, Action */
+  grid-template-columns: 1.2fr 1fr 2fr 1fr 1fr 1fr;
+  gap: 15px;
+  padding: 18px 24px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  color: #b0c4de;
+  transition: background 0.2s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:not(.head):hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.row.head {
+  background: rgba(255, 255, 255, 0.03);
+  font-weight: 700;
+  color: #4fa7ff;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  width: fit-content;
+}
+
+.status-resolved {
+  background: rgba(46, 213, 115, 0.15);
+  color: #2ed573;
+  border: 1px solid rgba(46, 213, 115, 0.3);
+}
+
+.status-pending {
+  background: rgba(255, 165, 2, 0.15);
+  color: #ffa502;
+  border: 1px solid rgba(255, 165, 2, 0.3);
+}
+
+/* Action Buttons */
+.resolve-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: linear-gradient(90deg, #1e70b8, #4fa7ff);
+  color: white;
+  box-shadow: 0 4px 10px rgba(30, 112, 184, 0.3);
+}
+
+.resolve-btn:hover {
+  box-shadow: 0 6px 15px rgba(30, 112, 184, 0.5);
+  transform: translateY(-2px);
+}
+
+.resolve-btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+@media (max-width: 1024px) {
+  .row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .row div:nth-child(2),
+  /* Title */
+  .row div:nth-child(3) {
+    /* Message */
+    display: none;
+  }
+}

@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-glow: #00d2ff;
+  --secondary-glow: #1e70b8;
+  --accent-color: #00d2ff;
+  --bg-dark: #050a18;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --sidebar-width: 250px;
+  --text-main: #ffffff;
+  --text-dim: #a0a0a0;
+  --input-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+}
+
+.deposit-layout {
+  display: flex;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(30, 112, 184, 0.2), transparent 40%),
+    linear-gradient(rgba(5, 10, 24, 0.95), rgba(5, 10, 24, 0.98)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+.deposit-container {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.deposit-container h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #fff, var(--primary-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+
+/* Premium Form Styling */
+.deposit-container select,
+.deposit-container input {
+  width: 100%;
+  max-width: 500px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+.deposit-container select:focus,
+.deposit-container input:focus {
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.deposit-container select option {
+  background-color: var(--bg-dark);
+  color: white;
+  padding: 10px;
+}
+
+/* Bank Details Box */
+.bank-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 500px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.bank-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-glow);
+}
+
+.bank-box p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+.bank-box p:last-child {
+  border-bottom: none;
+}
+
+.bank-box p b {
+  color: var(--primary-glow);
+  font-weight: 600;
+}
+
+/* Deposit Button */
+.deposit-btn {
+  width: 100%;
+  max-width: 500px;
+  padding: 18px;
+  background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(30, 112, 184, 0.3);
+  margin-top: 10px;
+}
+
+.deposit-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+}
+
+.deposit-btn:active {
+  transform: scale(0.98);
+}
+
+/* History Section */
+.deposit-container h3 {
+  margin-top: 50px;
+  font-size: 24px;
+  border-bottom: 2px solid var(--glass-border);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  color: var(--text-dim);
+}
+
+.deposit-table {
+  width: 100%;
+  background: rgba(15, 20, 35, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.deposit-table th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--primary-glow);
+  padding: 20px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.deposit-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: background 0.3s;
+}
+
+.deposit-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+  color: white;
+}
+
+.deposit-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .deposit-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .deposit-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

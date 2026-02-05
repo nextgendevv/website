@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-glow: #1e70b8;
+    --accent-color: #4fa7ff;
+    --text-main: #ffffff;
+    --text-dim: #b0c4de;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.tree-layout {
+    display: flex;
+    background:
+        linear-gradient(rgba(5, 10, 24, 0.8), rgba(5, 10, 24, 0.8)),
+        url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+}
+
+.tree-container {
+    flex: 1;
+    margin-left: 240px;
+    padding: 40px;
+}
+
+.tree-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.tree-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+}
+
+.tree-card h3 {
+    font-size: 18px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tree-card p {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.tree-card p b {
+    color: var(--text-dim);
+    margin-right: 10px;
+}
+
+.tree-table {
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tree-table th,
+.tree-table td {
+    padding: 18px 25px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+}
+
+.tree-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.tree-table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 900px) {
+    .tree-container {
+        margin-left: 0;
+        padding: 20px;
+    }
+}

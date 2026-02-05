@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+.admin-staking-layout {
+    padding: 30px;
+    min-height: 100vh;
+    background:
+        linear-gradient(135deg, rgba(5, 10, 24, 0.9), rgba(30, 112, 184, 0.2)),
+        url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+}
+
+.staking-header {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.staking-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(30, 112, 184, 0.5);
+    color: white;
+}
+
+/* Glass Table Styling */
+.admin-staking-table {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+}
+
+.row {
+    display: grid;
+    /* Wallet, Total Staked, Daily Stake, Affiliate Stake, Remaining Limit */
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 18px 24px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: #b0c4de;
+    transition: background 0.2s;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row:not(.head):hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.row.head {
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 700;
+    color: #4fa7ff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific Cell Styling */
+.row div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+    .row {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .row div:nth-child(3),
+    /* Daily Stake */
+    .row div:nth-child(4) {
+        /* Affiliate Stake */
+        display: none;
+    }
+}

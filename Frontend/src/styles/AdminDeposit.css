@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+.admin-deposit-layout {
+    padding: 30px;
+    min-height: 100vh;
+    background:
+        linear-gradient(135deg, rgba(5, 10, 24, 0.9), rgba(30, 112, 184, 0.2)),
+        url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+}
+
+.deposit-header {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deposit-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(30, 112, 184, 0.5);
+    color: white;
+}
+
+/* Glass Table Styling */
+.admin-deposit-table {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+}
+
+.row {
+    display: grid;
+    /* User, Amount, Method, UPI/Bank, Date, Status, Action */
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr 1fr 1fr 1.5fr;
+    gap: 15px;
+    padding: 18px 24px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: #b0c4de;
+    transition: background 0.2s;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row:not(.head):hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.row.head {
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 700;
+    color: #4fa7ff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    width: fit-content;
+}
+
+.status-approved {
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+}
+
+.status-rejected {
+    background: rgba(255, 71, 87, 0.15);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+.status-pending {
+    background: rgba(255, 165, 2, 0.15);
+    color: #ffa502;
+    border: 1px solid rgba(255, 165, 2, 0.3);
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-right: 6px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.btn-approve {
+    background: linear-gradient(90deg, #1e70b8, #4fa7ff);
+    box-shadow: 0 4px 10px rgba(30, 112, 184, 0.3);
+}
+
+.btn-approve:hover {
+    box-shadow: 0 6px 15px rgba(30, 112, 184, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-reject {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+.btn-reject:hover {
+    background: rgba(255, 71, 87, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+    .row {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+    }
+
+    .row div:nth-child(4),
+    .row div:nth-child(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-deposit-layout {
+        padding: 60px 15px 20px 15px;
+    }
+
+    .row.head {
+        display: none;
+    }
+
+    .row {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .row div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 13px;
+    }
+
+    .row div::before {
+        content: attr(data-label);
+        font-size: 10px;
+        text-transform: uppercase;
+        color: #4fa7ff;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .row div:last-child {
+        grid-column: span 2;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    .action-btn {
+        flex: 1;
+        margin: 0;
+    }
+}

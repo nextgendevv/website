@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-glow: #1e70b8;
+    --accent-color: #4fa7ff;
+    --text-main: #ffffff;
+    --text-dim: #b0c4de;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.team-advanced-layout {
+    display: flex;
+    background:
+        linear-gradient(rgba(5, 10, 24, 0.8), rgba(5, 10, 24, 0.8)),
+        url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+}
+
+.team-advanced-container {
+    flex: 1;
+    margin-left: 240px;
+    padding: 40px;
+}
+
+.team-advanced-container h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: left;
+    color: var(--text-main);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.controls select,
+.controls input {
+    padding: 12px 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-main);
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+.controls select option {
+    background: #050a18;
+    color: white;
+}
+
+.table-wrap {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.table-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1.5fr 1.5fr;
+    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1.5fr 1.5fr;
+    padding: 18px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    align-items: center;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.no-data {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 15px;
+}
+
+@media (max-width: 900px) {
+    .team-advanced-container {
+        margin-left: 0;
+        padding: 20px;
+    }
+}
