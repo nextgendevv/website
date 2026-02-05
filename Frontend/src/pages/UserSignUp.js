@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/userRegistration.css";
 import API_BASE_URL from "../config";
 
@@ -7,6 +8,7 @@ const UserSignUp = () => {
   // 🔹 DETECT REFERRAL ID FROM URL → ?ref=12345
   const params = new URLSearchParams(window.location.search);
   const sponsorId = params.get("ref");
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     fullname: "",
@@ -47,7 +49,7 @@ const UserSignUp = () => {
 
       if (data.success) {
         alert("Registration Successful!");
-        window.location.href = "/signin";
+        navigate("/signin");
       } else {
         alert(data.message || "Registration failed");
       }

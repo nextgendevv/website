@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AdminSidebar from "./Sidebar";
 import PackageSettings from "./PackageSettings";
 import TradeHistory from "./TradeHistory";
@@ -23,6 +24,7 @@ const AdminDashboard = () => {
   });
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("authToken");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -45,7 +47,7 @@ const AdminDashboard = () => {
   }, [token]);
 
   if (!token) {
-    window.location.href = "/admin";
+    navigate("/admin");
     return null;
   }
 

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/UserSignIn.css";
 import API_BASE_URL from "../config";
 
 const UserSignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
+  const navigate = useNavigate();
 
   const loginUser = async () => {
     try {
@@ -21,7 +23,7 @@ const UserSignIn = () => {
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         alert("Login Success!");
-        window.location.href = "/user/UserDashboard"; // Unified redirect
+        navigate("/user/UserDashboard"); // Unified redirect
       } else {
         alert(data.message || "Invalid Email or Password");
       }
