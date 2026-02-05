@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import UserSidebar from "./UserSidebar";
 import "../styles/UserDashboardMember.css";
 import dragonNft from "../assets/dragon-nft.png";
@@ -10,10 +11,11 @@ const UserDashboard = () => {
   const [copySuccess, setCopySuccess] = useState(false);
   const [timeLeft, setTimeLeft] = useState("");
   const token = localStorage.getItem("authToken");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
-      window.location.href = "/signin";
+      navigate("/signin");
       return;
     }
 
