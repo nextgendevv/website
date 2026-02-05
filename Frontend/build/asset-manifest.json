@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c6ddf27.css",
+    "main.js": "/static/js/main.f56b0532.js",
+    "static/js/239.ad40150f.chunk.js": "/static/js/239.ad40150f.chunk.js",
+    "static/js/977.6a7f6471.chunk.js": "/static/js/977.6a7f6471.chunk.js",
+    "static/js/455.22d4e1b1.chunk.js": "/static/js/455.22d4e1b1.chunk.js",
+    "static/media/logo.png": "/static/media/logo.94978a02de7e364b8d49.png",
+    "static/media/dragon-nft.png": "/static/media/dragon-nft.020612a9c17b8fadf39f.png",
+    "static/media/background.jpg": "/static/media/background.8d1da38f1f847b80a8e7.jpg",
+    "index.html": "/index.html",
+    "main.5c6ddf27.css.map": "/static/css/main.5c6ddf27.css.map",
+    "main.f56b0532.js.map": "/static/js/main.f56b0532.js.map",
+    "239.ad40150f.chunk.js.map": "/static/js/239.ad40150f.chunk.js.map",
+    "977.6a7f6471.chunk.js.map": "/static/js/977.6a7f6471.chunk.js.map",
+    "455.22d4e1b1.chunk.js.map": "/static/js/455.22d4e1b1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c6ddf27.css",
+    "static/js/main.f56b0532.js"
+  ]
+}
