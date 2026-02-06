@@ -81,7 +81,7 @@ const UserDashboard = () => {
     setLoadingAction(`nft-${price}`);
     // Simulate API call
     setTimeout(() => {
-      alert(`Dragon NFT for $${price} purchased!`);
+      alert(`Dragon NFT for ₹${price} purchased!`);
       setLoadingAction(null);
     }, 1500);
   };
@@ -120,22 +120,27 @@ const UserDashboard = () => {
 
         {/* WALLET BOXES */}
         <div className="wallet-row">
+          <div className="wallet-box accent">
+            <h3>Available Balance</h3>
+            <p className="amount">₹{data.availableBalance.toFixed(2)}</p>
+          </div>
+
           <div className="wallet-box">
             <h3>Deposit Wallet</h3>
-            <p className="amount">${data.depositWallet.toFixed(2)}</p>
+            <p className="amount">₹{data.depositWallet.toFixed(2)}</p>
           </div>
 
           <div className="wallet-box">
-            <h3>Withdrawal Wallet</h3>
-            <p className="amount">${data.withdrawWallet.toFixed(2)}</p>
+            <h3>Total Withdrawn</h3>
+            <p className="amount">₹{data.withdrawWallet.toFixed(2)}</p>
           </div>
 
-          <div className="wallet-box accent">
+          <div className="wallet-box">
             <h3>Staking Wallet</h3>
-            <p className="amount">${data.stakingWallet}</p>
+            <p className="amount">₹{data.stakingWallet}</p>
             <button
               className="upgrade-btn-small"
-              onClick={() => handleUpgrade("Staking")}
+              onClick={() => handleUpgrade("₹₹ Staking")}
               disabled={loadingAction === "Staking"}
             >
               {loadingAction === "Staking" ? "Processing..." : "UPGRADE"}
@@ -199,15 +204,15 @@ const UserDashboard = () => {
 
         {/* PKG BUTTONS */}
         <div className="pkg-buttons-row">
-          <button className="pkg-btn" onClick={() => handleUpgrade("$25")}>
-            {loadingAction === "$25" ? "Wait..." : "$25 UPGRADE"}
+          <button className="pkg-btn" onClick={() => handleUpgrade("₹25")}>
+            {loadingAction === "₹25" ? "Wait..." : "₹25 UPGRADE"}
           </button>
-          <button className="pkg-btn" onClick={() => handleUpgrade("$50")}>
-            {loadingAction === "$50" ? "Wait..." : "$50 UPGRADE"}
+          <button className="pkg-btn" onClick={() => handleUpgrade("₹50")}>
+            {loadingAction === "₹50" ? "Wait..." : "₹50 UPGRADE"}
           </button>
           <div className="trade-status-btn">
             <span>REMAINING TRADE</span>
-            <strong>{data.trade.remainingTrade}$</strong>
+            <strong>{data.trade.remainingTrade}₹</strong>
           </div>
           <div className="trade-timer-btn">
             <span>NEXT RESET</span>
@@ -226,7 +231,7 @@ const UserDashboard = () => {
                 </div>
                 <div className="nft-details">
                   <h3>Dragon NFT #{i + 1}</h3>
-                  <p className="price">${price}</p>
+                  <p className="price">₹{price}</p>
                   <button
                     onClick={() => handleBuyNft(price)}
                     disabled={loadingAction === `nft-${price}`}

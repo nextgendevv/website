@@ -31,6 +31,7 @@ router.get("/withdrawals", getAllWithdrawals);
 router.put("/withdrawals/:id", updateWithdrawalStatus);
 router.get("/staking", getAllStaking);
 router.get("/support", getAllSupport);
+router.put("/support/:id", updateSupportStatus);
 router.get("/reports", getAllReports);
 router.get("/transfers", getAllTransfers);
 router.get("/trades", getAllTrades);

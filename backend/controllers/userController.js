@@ -168,6 +168,7 @@ export const getUserDashboard = async (req, res) => {
         fullname: user.fullname,
         email: user.email
       },
+      availableBalance: user.balance || 0,
       depositWallet: user.depositWallet || 0,
       withdrawWallet: user.withdrawWallet || 0,
       stakingWallet: user.stakingWallet || 0,

@@ -76,7 +76,7 @@ const AdminWithdrawal = () => {
             <div className="row" key={w._id}>
               <div>{new Date(w.date).toLocaleDateString()}</div>
               <div style={{ color: "white", fontWeight: "600" }}>{w.userId?.fullname || "User"}</div>
-              <div style={{ color: "#4fa7ff", fontWeight: "bold" }}>${w.amount}</div>
+              <div style={{ color: "#4fa7ff", fontWeight: "bold" }}>₹{w.amount}</div>
               <div>{w.method}</div>
               <div>
                 <span className={`status-badge status-${w.status?.toLowerCase() || 'pending'}`}>
@@ -84,17 +84,17 @@ const AdminWithdrawal = () => {
                 </span>
               </div>
               <div>
-                {w.status === "Pending" && (
+                {w.status === "PENDING" && (
                   <>
                     <button
                       className="action-btn btn-approve"
-                      onClick={() => updateStatus(w._id, "Approved")}
+                      onClick={() => updateStatus(w._id, "APPROVED")}
                     >
                       Approve
                     </button>
                     <button
                       className="action-btn btn-reject"
-                      onClick={() => updateStatus(w._id, "Rejected")}
+                      onClick={() => updateStatus(w._id, "REJECTED")}
                     >
                       Reject
                     </button>

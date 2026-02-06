@@ -29,6 +29,10 @@ import AdminHistory from "./Admin/AdminHistory";
 import AdminWithdrawal from "./Admin/AdminWithdrawal";
 import AdminSupport from "./Admin/AdminSupport";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
+import NotFound from "./pages/NotFound";
+
 function App() {
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
@@ -37,31 +41,33 @@ function App() {
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/signin" element={<UserSignIn />} />
         <Route path="/signup" element={<UserSignUp />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/user/profile" element={<UserProfile />} />
-        <Route path="/user/UserDashboard" element={<UserDashboard />} />
-        <Route path="/user/registration" element={<Register />} />
-        <Route path="/user/change-password" element={<ChangePassword />} />
-        <Route path="/user/staking" element={<UserStaking />} />
-        <Route path="/user/staking-history" element={<StakingHistory />} />
-        <Route path="/admin/staking-reports" element={<AdminStaking />} />
-        <Route path="/user/team" element={<Team />} />
-        <Route path="/user/team-advanced" element={<TeamAdvanced />} />
-        <Route path="/admin/team-advanced" element={<AdminTeamAdvanced />} />
-        <Route path="/user/history" element={<History />} />
-        <Route path="/admin/history" element={<AdminHistory />} />
-        <Route path="/user/withdrawal" element={<Withdrawal />} />
-        <Route path="/admin/withdrawals" element={<AdminWithdrawal />} />
-        <Route path="/user/report" element={<UserReport />} />
-        <Route path="/user/transfer" element={<Transfer />} />
-        <Route path="/user/invest" element={<Invest />} />
-        <Route path="/user/support" element={<Support />} />
+        <Route path="/admin/dashboard" element={<AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>} />
 
-        <Route path="/user/referral-tree" element={<ReferralTree />} />
-        <Route path="/user/deposit" element={<UserDeposit />} />
-        <Route path="/admin/deposits" element={<AdminDeposits />} />
-        <Route path="/admin/support" element={<AdminSupport />} />
-        <Route path="*" element={<Dashboard />} />
+        {/* Protected User Routes */}
+        <Route path="/user/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+        <Route path="/user/dashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} />
+        <Route path="/user/registration" element={<ProtectedRoute><Register /></ProtectedRoute>} />
+        <Route path="/user/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
+        <Route path="/user/staking" element={<ProtectedRoute><UserStaking /></ProtectedRoute>} />
+        <Route path="/user/staking-history" element={<ProtectedRoute><StakingHistory /></ProtectedRoute>} />
+        <Route path="/admin/staking-reports" element={<AdminProtectedRoute><AdminStaking /></AdminProtectedRoute>} />
+        <Route path="/user/team" element={<ProtectedRoute><Team /></ProtectedRoute>} />
+        <Route path="/user/team-advanced" element={<ProtectedRoute><TeamAdvanced /></ProtectedRoute>} />
+        <Route path="/admin/team-advanced" element={<AdminProtectedRoute><AdminTeamAdvanced /></AdminProtectedRoute>} />
+        <Route path="/user/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
+        <Route path="/admin/history" element={<AdminProtectedRoute><AdminHistory /></AdminProtectedRoute>} />
+        <Route path="/user/withdrawal" element={<ProtectedRoute><Withdrawal /></ProtectedRoute>} />
+        <Route path="/admin/withdrawals" element={<AdminProtectedRoute><AdminWithdrawal /></AdminProtectedRoute>} />
+        <Route path="/user/report" element={<ProtectedRoute><UserReport /></ProtectedRoute>} />
+        <Route path="/user/transfer" element={<ProtectedRoute><Transfer /></ProtectedRoute>} />
+        <Route path="/user/invest" element={<ProtectedRoute><Invest /></ProtectedRoute>} />
+        <Route path="/user/support" element={<ProtectedRoute><Support /></ProtectedRoute>} />
+        <Route path="/user/referral-tree" element={<ProtectedRoute><ReferralTree /></ProtectedRoute>} />
+        <Route path="/user/deposit" element={<ProtectedRoute><UserDeposit /></ProtectedRoute>} />
+
+        <Route path="/admin/deposits" element={<AdminProtectedRoute><AdminDeposits /></AdminProtectedRoute>} />
+        <Route path="/admin/support" element={<AdminProtectedRoute><AdminSupport /></AdminProtectedRoute>} />
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
     </BrowserRouter>

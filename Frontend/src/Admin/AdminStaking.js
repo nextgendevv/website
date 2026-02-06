@@ -52,10 +52,10 @@ const AdminStaking = () => {
           stakingRecords.map((s) => (
             <div className="row" key={s._id}>
               <div style={{ fontWeight: "600", color: "#b0c4de", fontFamily: "monospace" }}>{s.wallet}</div>
-              <div style={{ color: "white", fontWeight: "bold" }}>${s.totalStaked}</div>
-              <div style={{ color: "#4ade80" }}>${s.dailyStake}</div>
-              <div style={{ color: "#4fa7ff" }}>${s.affiliateStake}</div>
-              <div style={{ color: "#f87171" }}>${s.remainingLimit}</div>
+              <div style={{ color: "white", fontWeight: "bold" }}>₹{s.totalStaked}</div>
+              <div style={{ color: "#4ade80" }}>₹{s.dailyStake}</div>
+              <div style={{ color: "#4fa7ff" }}>₹{s.affiliateStake}</div>
+              <div style={{ color: "#f87171" }}>₹{s.remainingLimit}</div>
             </div>
           ))
         )}

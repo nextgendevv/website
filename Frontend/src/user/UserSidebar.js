@@ -30,7 +30,7 @@ const UserSidebar = () => {
 
     switch (path) {
       case "dashboard":
-        navigate("/user/UserDashboard");
+        navigate("/user/dashboard");
         break;
 
       case "profile":

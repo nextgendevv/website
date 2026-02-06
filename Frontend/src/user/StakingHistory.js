@@ -36,9 +36,9 @@ const StakingHistory = () => {
         <table className="staking-table">
           <thead>
             <tr>
-              <th>Amount ($)</th>
-              <th>Daily Reward ($)</th>
-              <th>Affiliate Reward ($)</th>
+              <th>Amount (₹)</th>
+              <th>Daily Reward (₹)</th>
+              <th>Affiliate Reward (₹)</th>
               <th>Date & Time</th>
             </tr>
           </thead>
@@ -46,9 +46,9 @@ const StakingHistory = () => {
             {history.length > 0 ? (
               history.map((h, i) => (
                 <tr key={i}>
-                  <td>{h.amount}</td>
-                  <td>{h.dailyReward}</td>
-                  <td>{h.affiliateReward}</td>
+                  <td>₹{h.amount}</td>
+                  <td>₹{h.dailyReward}</td>
+                  <td>₹{h.affiliateReward}</td>
                   <td>{h.time}</td>
                 </tr>
               ))

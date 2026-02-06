@@ -62,7 +62,7 @@ const UserDeposit = () => {
         ["User", "Valued Member"],
         ["Transaction Type", "Deposit"],
         ["Method", details.method.toUpperCase()],
-        ["Amount", `$${details.amount}`],
+        ["Amount", `₹${details.amount}`],
         ["Status", "Pending Approval"],
         ["Reference ID", details.upi || "Bank Transfer"],
       ],

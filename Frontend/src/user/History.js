@@ -65,7 +65,7 @@ const History = () => {
             history.deposits.map((d, i) => (
               <div className="table-row" key={i}>
                 <span>{d.date}</span>
-                <span>{d.amount}</span>
+                <span>₹{d.amount}</span>
                 <span>{d.method}</span>
                 <span>{d.status}</span>
               </div>
@@ -89,7 +89,7 @@ const History = () => {
             history.withdrawals.map((w, i) => (
               <div className="table-row" key={i}>
                 <span>{w.date}</span>
-                <span>{w.amount}</span>
+                <span>₹{w.amount}</span>
                 <span>{w.method}</span>
                 <span>{w.status}</span>
               </div>
@@ -114,7 +114,7 @@ const History = () => {
               <div className="table-row" key={i}>
                 <span>{s.date}</span>
                 <span>{s.package}</span>
-                <span>{s.amount}</span>
+                <span>₹{s.amount}</span>
                 <span>{s.status}</span>
               </div>
             ))
@@ -138,7 +138,7 @@ const History = () => {
               <div className="table-row" key={i}>
                 <span>{r.date}</span>
                 <span>{r.type}</span>
-                <span>{r.amount}</span>
+                <span>₹{r.amount}</span>
                 <span>{r.level}</span>
               </div>
             ))

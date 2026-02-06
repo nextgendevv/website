@@ -47,13 +47,13 @@ export const updateDepositStatus = async (req, res) => {
             return res.status(400).json({ message: "Deposit already processed" });
         }
 
-        deposit.status = status;
+        deposit.status = status; // Expected "APPROVED" or "REJECTED"
         await deposit.save();
 
         if (status === "APPROVED") {
             const user = await User.findById(deposit.userId);
             if (user) {
-                user.depositWallet += deposit.amount;
+                user.depositWallet = (user.depositWallet || 0) + deposit.amount;
                 await user.save();
             }
         }
@@ -79,20 +79,28 @@ export const getAllWithdrawals = async (req, res) => {
 // @route   PUT /api/admin/withdrawals/:id
 export const updateWithdrawalStatus = async (req, res) => {
     try {
-        const { status } = req.body;
+        const { status } = req.body; // APPROVED or REJECTED
         const withdrawal = await Withdrawal.findById(req.params.id);
 
         if (!withdrawal) {
             return res.status(404).json({ message: "Withdrawal not found" });
         }
 
-        if (status === "Approved" && withdrawal.status !== "Approved") {
+        if (withdrawal.status !== "PENDING") {
+            return res.status(400).json({ message: "Withdrawal already processed" });
+        }
+
+        if (status === "REJECTED") {
+            // Refund the balance if rejected (since we now freeze it on request)
             const user = await User.findById(withdrawal.userId);
             if (user) {
-                if (user.balance < withdrawal.amount) {
-                    return res.status(400).json({ message: "User has insufficient balance to complete this withdrawal" });
-                }
-                user.balance -= withdrawal.amount;
+                user.balance = (user.balance || 0) + withdrawal.amount;
+                await user.save();
+            }
+        } else if (status === "APPROVED") {
+            // Just update withdrawWallet tracker if needed
+            const user = await User.findById(withdrawal.userId);
+            if (user) {
                 user.withdrawWallet = (user.withdrawWallet || 0) + withdrawal.amount;
                 await user.save();
             }
@@ -122,8 +130,29 @@ export const getAllStaking = async (req, res) => {
 // @route   GET /api/admin/support
 export const getAllSupport = async (req, res) => {
     try {
-        const tickets = await SupportTicket.find({}).sort({ createdAt: -1 });
+        const tickets = await SupportTicket.find({}).sort({ date: -1 });
         res.json(tickets);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc    Reply to Support Ticket
+// @route   PUT /api/admin/support/:id
+export const updateSupportStatus = async (req, res) => {
+    try {
+        const { reply, status } = req.body;
+        const ticket = await SupportTicket.findById(req.params.id);
+
+        if (!ticket) {
+            return res.status(404).json({ message: "Ticket not found" });
+        }
+
+        ticket.adminReply = reply || ticket.adminReply;
+        ticket.status = status || "REPLIED";
+        await ticket.save();
+
+        res.json({ message: "Ticket updated successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

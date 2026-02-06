@@ -23,7 +23,7 @@ const UserSignIn = () => {
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         alert("Login Success!");
-        navigate("/user/UserDashboard"); // Unified redirect
+        navigate("/user/dashboard"); // Unified redirect
       } else {
         alert(data.message || "Invalid Email or Password");
       }

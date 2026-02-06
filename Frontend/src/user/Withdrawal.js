@@ -109,7 +109,7 @@ const Withdrawal = () => {
                 history.map((w, i) => (
                   <div className="table-row" key={i}>
                     <span>{w.date}</span>
-                    <span>${w.amount}</span>
+                    <span>₹{w.amount}</span>
                     <span>{w.method}</span>
                     <span>
                       <span className={`status-badge status-${w.status?.toLowerCase() || 'pending'}`}>

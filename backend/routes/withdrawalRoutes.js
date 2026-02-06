@@ -1,4 +1,5 @@
 import express from "express";
+import User from "../models/User.js";
 import Withdrawal from "../models/Withdrawal.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 
@@ -21,15 +22,19 @@ router.post("/request", authMiddleware, async (req, res) => {
       return res.status(400).json({ message: "Insufficient balance" });
     }
 
+    // Freeze balance immediately
+    user.balance -= Number(amount);
+    await user.save();
+
     const newWithdrawal = new Withdrawal({
       userId: req.user.id,
-      date: new Date().toLocaleString(),
+      date: new Date().toISOString(),
       amount: Number(amount),
       method,
-      status: "Pending",
+      status: "PENDING",
     });
     await newWithdrawal.save();
-    res.json({ message: "Withdrawal request submitted successfully" });
+    res.json({ success: true, message: "Withdrawal request submitted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
