@@ -7,6 +7,7 @@ import {
     updateWithdrawalStatus,
     getAllStaking,
     getAllSupport,
+    updateSupportStatus,
     getAllReports,
     getAllTransfers,
     getAllTrades,

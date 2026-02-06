@@ -203,7 +203,7 @@ export const getStats = async (req, res) => {
 
         // Total amounts
         const totalDeposits = await Deposit.aggregate([{ $match: { status: "APPROVED" } }, { $group: { _id: null, total: { $sum: "$amount" } } }]);
-        const totalWithdrawals = await Withdrawal.aggregate([{ $match: { status: "Approved" } }, { $group: { _id: null, total: { $sum: "$amount" } } }]);
+        const totalWithdrawals = await Withdrawal.aggregate([{ $match: { status: "APPROVED" } }, { $group: { _id: null, total: { $sum: "$amount" } } }]);
         const totalStaking = await Staking.aggregate([{ $group: { _id: null, total: { $sum: "$totalStaked" } } }]);
 
         res.json({

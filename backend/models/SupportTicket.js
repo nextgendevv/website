@@ -32,7 +32,7 @@ const supportTicketSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Pending",
+    default: "PENDING",
   },
   date: {
     type: Date,
