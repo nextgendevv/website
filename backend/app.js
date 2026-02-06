@@ -74,7 +74,7 @@ const __dirname = path.resolve();
 const buildPath = path.join(__dirname, "Frontend", "build");
 app.use(express.static(buildPath));
 
-app.get("*", (req, res) => {
+app.get("*any", (req, res) => {
     res.sendFile(path.join(buildPath, "index.html"), (err) => {
         if (err) {
             res.status(500).send(err);
