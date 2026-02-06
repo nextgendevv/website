@@ -69,18 +69,18 @@ app.use("/api/support", supportRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/investment", investmentRoutes);
 
+// --- FRONTEND SERVING ---
 const __dirname = path.resolve();
+const buildPath = path.join(__dirname, "Frontend", "build");
+app.use(express.static(buildPath));
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "/Frontend/build")));
-    app.get("*path", (req, res) =>
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"))
-    );
-} else {
-    app.get("/", (req, res) => {
-        res.send("API is running...");
+app.get("*", (req, res) => {
+    res.sendFile(path.join(buildPath, "index.html"), (err) => {
+        if (err) {
+            res.status(500).send(err);
+        }
     });
-}
+});
 
 // Error Handling Middleware
 app.use(notFound);

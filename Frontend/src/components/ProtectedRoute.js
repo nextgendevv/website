@@ -5,9 +5,11 @@ const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-        // If no token, redirect to signin
+        console.log("ProtectedRoute: No token found, redirecting to /signin");
         return <Navigate to="/signin" replace />;
     }
+
+    console.log("ProtectedRoute: Token found, allowing access");
 
     // If token exists, render the component
     return children;

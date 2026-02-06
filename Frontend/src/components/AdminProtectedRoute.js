@@ -6,9 +6,11 @@ const AdminProtectedRoute = ({ children }) => {
     const isAdmin = localStorage.getItem("isAdmin") === "true";
 
     if (!token || !isAdmin) {
-        // If no token or not admin, redirect to admin login
+        console.log(`AdminProtectedRoute: Auth failed (token: ${!!token}, isAdmin: ${isAdmin}), redirecting to /admin`);
         return <Navigate to="/admin" replace />;
     }
+
+    console.log("AdminProtectedRoute: Admin auth success, allowing access");
 
     // If authorized, render the component
     return children;
