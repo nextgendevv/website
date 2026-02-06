@@ -65,9 +65,9 @@ const Invest = () => {
             <div className="deposit-container">
                 <h2>📈 ROI Investment</h2>
                 <p>Invest your funds and get 200% return in 24 installments.</p>
-                
+
                 <div style={{ background: "rgba(255,255,255,0.05)", padding: "20px", borderRadius: "15px", marginBottom: "20px" }}>
-                    <p><b>Payout Logic:</b> 2X Return (e.g. 2500 -> 5000)</p>
+                    <p><b>Payout Logic:</b> 2X Return (e.g. 2500 &rarr; 5000)</p>
                     <p><b>Installments:</b> 24 Payouts</p>
                 </div>
 
@@ -78,8 +78,8 @@ const Invest = () => {
                     onChange={(e) => setAmount(e.target.value)}
                 />
 
-                <button 
-                    className="deposit-btn" 
+                <button
+                    className="deposit-btn"
                     onClick={handleInvest}
                     disabled={loading}
                 >
@@ -108,7 +108,7 @@ const Invest = () => {
                                     <td>{inv.amountReturned.toFixed(2)}</td>
                                     <td>{inv.installmentsPaid}/{inv.totalInstallments}</td>
                                     <td>
-                                        <span style={{ 
+                                        <span style={{
                                             color: inv.status === "ACTIVE" ? "#00d2ff" : "#00ff88",
                                             fontWeight: "bold"
                                         }}>
