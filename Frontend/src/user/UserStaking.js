@@ -132,17 +132,17 @@ const UserStaking = () => {
 
           <div className="box">
             <h4>Affiliate Stake</h4>
-            <p>{data.affiliateStake.toFixed(2)}</p>
+            <p>₹{(data.affiliateStake || 0).toFixed(2)}</p>
           </div>
 
           <div className="box">
             <h4>Daily Stake</h4>
-            <p>{data.dailyStake.toFixed(2)}</p>
+            <p>₹{(data.dailyStake || 0).toFixed(2)}</p>
           </div>
 
           <div className="box">
             <h4>Referral Commission</h4>
-            <p>{data.referralCommission.toFixed(2)}</p>
+            <p>₹{(data.referralCommission || 0).toFixed(2)}</p>
           </div>
 
           <div className="box">

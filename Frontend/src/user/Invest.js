@@ -105,7 +105,7 @@ const Invest = () => {
                                 <tr key={i}>
                                     <td>{inv.amountInvested}</td>
                                     <td>{inv.totalToReturn}</td>
-                                    <td>{inv.amountReturned.toFixed(2)}</td>
+                                    <td>₹{(inv.amountReturned || 0).toFixed(2)}</td>
                                     <td>{inv.installmentsPaid}/{inv.totalInstallments}</td>
                                     <td>
                                         <span style={{

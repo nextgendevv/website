@@ -41,19 +41,19 @@ const AdminReport = () => {
 
         <div className="wallet-card glass-card">
           <h4>TOTAL DEPOSITS</h4>
-          <div className="amount">${stats?.amounts?.deposits?.toFixed(2) || "0.00"}</div>
+          <div className="amount">₹{(stats?.amounts?.deposits || 0).toFixed(2)}</div>
           <p>Approved Total</p>
         </div>
 
         <div className="wallet-card glass-card">
           <h4>TOTAL WITHDRAWALS</h4>
-          <div className="amount">${stats?.amounts?.withdrawals?.toFixed(2) || "0.00"}</div>
+          <div className="amount">₹{(stats?.amounts?.withdrawals || 0).toFixed(2)}</div>
           <p>Approved Total</p>
         </div>
 
         <div className="wallet-card glass-card">
           <h4>TOTAL STAKING</h4>
-          <div className="amount">${stats?.amounts?.staking?.toFixed(2) || "0.00"}</div>
+          <div className="amount">₹{(stats?.amounts?.staking || 0).toFixed(2)}</div>
           <p>Active Staked Amount</p>
         </div>
       </div>

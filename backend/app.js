@@ -70,12 +70,11 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/investment", investmentRoutes);
 
 // --- FRONTEND SERVING ---
-const __dirname = path.resolve();
-const buildPath = path.join(__dirname, "Frontend", "build");
+const buildPath = path.join(process.cwd(), "Frontend", "build");
 app.use(express.static(buildPath));
 
 app.get("*any", (req, res) => {
-    res.sendFile(path.join(buildPath, "index.html"), (err) => {
+    res.sendFile(path.resolve(buildPath, "index.html"), (err) => {
         if (err) {
             res.status(500).send(err);
         }

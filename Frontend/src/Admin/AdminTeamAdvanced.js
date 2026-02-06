@@ -92,7 +92,7 @@ export default function AdminTeamAdvanced() {
             <div data-label="Email" style={{ wordBreak: "break-all" }}>{u.email}</div>
             <div data-label="Sponsor">{u.sponsorName || "—"}</div>
             <div data-label="Reg Date">{u.registerDate}</div>
-            <div data-label="Balance" style={{ fontWeight: "bold", color: "#28a745" }}>${u.balance?.toFixed(2)}</div>
+            <div data-label="Balance" style={{ fontWeight: "bold", color: "#28a745" }}>₹{(u.balance || 0).toFixed(2)}</div>
           </div>
         ))}
 

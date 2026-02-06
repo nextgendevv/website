@@ -24,6 +24,13 @@ const UserDashboard = () => {
         const resp = await fetch(`${API_BASE_URL}/api/user/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
+
+        if (!resp.ok) {
+          const errorData = await resp.json();
+          console.error("Dashboard Fetch Error:", errorData.message);
+          return;
+        }
+
         const result = await resp.json();
         setData(result);
         if (result.trade && result.trade.tradeTimer) {
@@ -122,25 +129,25 @@ const UserDashboard = () => {
         <div className="wallet-row">
           <div className="wallet-box accent">
             <h3>Available Balance</h3>
-            <p className="amount">₹{data.availableBalance.toFixed(2)}</p>
+            <p className="amount">₹{(data.availableBalance || 0).toFixed(2)}</p>
           </div>
 
           <div className="wallet-box">
             <h3>Deposit Wallet</h3>
-            <p className="amount">₹{data.depositWallet.toFixed(2)}</p>
+            <p className="amount">₹{(data.depositWallet || 0).toFixed(2)}</p>
           </div>
 
           <div className="wallet-box">
             <h3>Total Withdrawn</h3>
-            <p className="amount">₹{data.withdrawWallet.toFixed(2)}</p>
+            <p className="amount">₹{(data.withdrawWallet || 0).toFixed(2)}</p>
           </div>
 
           <div className="wallet-box">
             <h3>Staking Wallet</h3>
-            <p className="amount">₹{data.stakingWallet}</p>
+            <p className="amount">₹{data.stakingWallet || 0}</p>
             <button
               className="upgrade-btn-small"
-              onClick={() => handleUpgrade("₹₹ Staking")}
+              onClick={() => handleUpgrade("₹ Staking")}
               disabled={loadingAction === "Staking"}
             >
               {loadingAction === "Staking" ? "Processing..." : "UPGRADE"}

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import AdminLogin from "./pages/AdminLogin";
 import UserSignIn from "./pages/UserSignIn";
@@ -38,6 +38,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/index.html" element={<Navigate to="/" replace />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/signin" element={<UserSignIn />} />
         <Route path="/signup" element={<UserSignUp />} />
@@ -46,6 +47,7 @@ function App() {
         {/* Protected User Routes */}
         <Route path="/user/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
         <Route path="/user/dashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} />
+        <Route path="/user/UserDashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} />
         <Route path="/user/registration" element={<ProtectedRoute><Register /></ProtectedRoute>} />
         <Route path="/user/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
         <Route path="/user/staking" element={<ProtectedRoute><UserStaking /></ProtectedRoute>} />
